@@ -1,0 +1,328 @@
+/* style_light.css */
+
+/* Base */
+body {
+    background-color: #f0f0f0; /* Light background */
+    color: #1a1a1a; /* Dark text */
+    --primary-bg: #f0f0f0;
+    --secondary-bg: #ffffff;
+    --tertiary-bg: #e0e0e0; /* Sidebar bg */
+    --primary-text: #1a1a1a;
+    --secondary-text: #444444;
+    --accent-color: #007bff; /* Professional Blue */
+    --accent-color-2: #dc3545; /* Red/Alert */
+    --border-color: #cccccc;
+    --button-text: var(--accent-color);
+    --button-hover-bg: var(--accent-color);
+    --button-hover-text: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gauge-bg: #ffffff;
+    --gauge-axis: #333333;
+    --gauge-threshold: var(--accent-color-2);
+}
+
+.stApp {
+     background-color: var(--primary-bg);
+}
+
+/* --- Dynamic AQI Color Styling --- */
+.content-wrapper.aqi-good h1,
+.content-wrapper.aqi-good h2,
+.content-wrapper.aqi-good h3,
+.content-wrapper.aqi-good .stMetric > div[data-testid="stMetricValue"] { color: #28a745; /* Bootstrap Green */ }
+
+.content-wrapper.aqi-moderate h1,
+.content-wrapper.aqi-moderate h2,
+.content-wrapper.aqi-moderate h3,
+.content-wrapper.aqi-moderate .stMetric > div[data-testid="stMetricValue"] { color: #ffc107; /* Bootstrap Yellow */ }
+
+.content-wrapper.aqi-uhfsg h1,
+.content-wrapper.aqi-uhfsg h2,
+.content-wrapper.aqi-uhfsg h3,
+.content-wrapper.aqi-uhfsg .stMetric > div[data-testid="stMetricValue"] { color: #fd7e14; /* Bootstrap Orange */ }
+
+.content-wrapper.aqi-unhealthy h1,
+.content-wrapper.aqi-unhealthy h2,
+.content-wrapper.aqi-unhealthy h3,
+.content-wrapper.aqi-unhealthy .stMetric > div[data-testid="stMetricValue"] { color: #dc3545; /* Bootstrap Red */ }
+
+.content-wrapper.aqi-very-unhealthy h1,
+.content-wrapper.aqi-very-unhealthy h2,
+.content-wrapper.aqi-very-unhealthy h3,
+.content-wrapper.aqi-very-unhealthy .stMetric > div[data-testid="stMetricValue"] { color: #6f42c1; /* Bootstrap Purple */ }
+
+.content-wrapper.aqi-hazardous h1,
+.content-wrapper.aqi-hazardous h2,
+.content-wrapper.aqi-hazardous h3,
+.content-wrapper.aqi-hazardous .stMetric > div[data-testid="stMetricValue"] { color: #8B0000; /* Dark Red/Maroon */ }
+
+/* Default Title/Header Color if no AQI class */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-text); /* Darker for light theme */
+    text-shadow: none;
+}
+
+/* Buttons */
+.stButton>button {
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--button-text);
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+.stButton>button:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+ .stButton>button:active {
+     opacity: 0.8;
+ }
+
+/* Selectbox */
+.stSelectbox div[data-baseweb="select"] > div {
+     background-color: var(--secondary-bg);
+     border: 1px solid var(--border-color);
+     box-shadow: none;
+     color: var(--primary-text);
+}
+/* Selectbox Dropdown */
+div[data-baseweb="popover"] ul {
+    background-color: var(--secondary-bg) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+div[data-baseweb="popover"] ul li {
+    color: var(--primary-text) !important;
+}
+ div[data-baseweb="popover"] ul li:hover {
+     background-color: var(--accent-color) !important;
+     color: #ffffff !important;
+ }
+
+/* Metrics */
+.stMetric {
+    background-color: var(--secondary-bg);
+    border-left: 5px solid var(--accent-color); /* Default border */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+/* Apply dynamic border color based on AQI class */
+.content-wrapper.aqi-good .stMetric          { border-left-color: #28a745; }
+.content-wrapper.aqi-moderate .stMetric       { border-left-color: #ffc107; }
+.content-wrapper.aqi-uhfsg .stMetric          { border-left-color: #fd7e14; }
+.content-wrapper.aqi-unhealthy .stMetric      { border-left-color: #dc3545; }
+.content-wrapper.aqi-very-unhealthy .stMetric { border-left-color: #6f42c1; }
+.content-wrapper.aqi-hazardous .stMetric      { border-left-color: #8B0000; }
+
+.stMetric > label { /* Metric Label */
+    color: var(--secondary-text);
+}
+ /* Metric Value (Default, overridden by AQI class) */
+ .stMetric > div[data-testid="stMetricValue"] {
+     color: var(--primary-text);
+     font-size: 2.5em;
+     font-weight: bold;
+ }
+
+/* Sidebar */
+.stSidebar {
+    background-color: var(--tertiary-bg);
+    border-right: 1px solid var(--border-color);
+}
+.stSidebar .stTextInput input[type="password"],
+.stSidebar .stTextInput input[type="text"]
+{
+     border: 1px solid var(--border-color);
+     background-color: var(--secondary-bg);
+     color: var(--primary-text);
+     border-radius: 4px;
+ }
+
+ /* Divider */
+ hr {
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    height: 1px;
+    border: none;
+ }
+
+ /* Info/Warning/Error boxes */
+ .stAlert {
+    border-radius: 5px;
+    border-left-width: 5px;
+    color: var(--primary-text); /* Ensure text is readable */
+ }
+ .stAlert[data-testid="stInfo"]    { border-left-color: #17a2b8; background-color: rgba(23, 162, 184, 0.1); } /* Bootstrap Info */
+ .stAlert[data-testid="stWarning"] { border-left-color: #ffc107; background-color: rgba(255, 193, 7, 0.1); } /* Bootstrap Warning */
+ .stAlert[data-testid="stError"]   { border-left-color: #dc3545; background-color: rgba(220, 53, 69, 0.1); } /* Bootstrap Danger */
+
+/* --- Developer Profile Box --- */
+.stSidebar .developer-profile-box {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly different background */
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+.stSidebar .developer-profile-box .stImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+}
+.stSidebar .developer-profile-box p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9em;
+    color: var(--primary-text);
+}
+.stSidebar .developer-profile-box a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.stSidebar .developer-profile-box a:hover {
+    color: var(--accent-color-2);
+    text-decoration: underline;
+}
+
+
+/* --- Health Recommendation Card --- */
+.health-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.health-card h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+.health-card p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: var(--primary-text);
+}
+.health-card em { /* Style additional tips */
+    color: var(--secondary-text);
+    font-size: 0.95em;
+}
+
+/* --- Pollutant Details Styling --- */
+.pollutant-details {
+    background-color: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--accent-color);
+}
+.pollutant-details h4 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+.pollutant-details p {
+    margin-bottom: 0.5rem;
+    color: var(--primary-text);
+}
+.pollutant-details span {
+    display: inline-block;
+    min-width: 60px; /* Align values */
+    font-weight: bold;
+    color: var(--primary-text); /* Make value stand out */
+    margin-left: 5px;
+}
+
+/* --- Health Recommendation Card Styling (using st.container) --- */
+/* Target the container indirectly or rely on general markdown styling */
+
+/* Style the H3 title within the recommendation markdown */
+.content-wrapper div[data-testid="stVerticalBlock"] div[data-testid="stMarkdownContainer"] h3 {
+    margin-top: 0; /* Remove default top margin */
+    /* Apply theme-specific color, e.g., var(--accent-color) */
+    color: var(--accent-color);
+    font-size: 1.5em; /* Adjust size */
+    border-bottom: 1px solid var(--border-color); /* Optional separator */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Style paragraphs within the recommendation markdown */
+.content-wrapper div[data-testid="stVerticalBlock"] div[data-testid="stMarkdownContainer"] p {
+    font-size: 1.0em; /* Adjust size */
+    line-height: 1.6;
+    margin-bottom: 0.75rem; /* Spacing between paragraphs */
+}
+
+/* Style the italicized additional tips */
+.content-wrapper div[data-testid="stVerticalBlock"] div[data-testid="stMarkdownContainer"] em {
+    color: var(--secondary-text); /* Subtler color */
+    font-size: 0.95em;
+}
+
+/* Style the bold General Advice / Additional Considerations labels */
+.content-wrapper div[data-testid="stVerticalBlock"] div[data-testid="stMarkdownContainer"] strong {
+   /* Optional: Add specific styling if needed */
+}
+
+/* Add border/background to the Streamlit container itself (less reliable) */
+/* You might need to inspect the generated HTML to find a stable selector */
+/* This is fragile: */
+/* .st-emotion-cache-XYZ { /* Find the specific hash for the container */
+/*    border: 1px solid var(--border-color); */
+/*    border-radius: 8px; */
+/*    padding: 1.5rem; */
+/*    margin-top: 1rem; */
+/*    background-color: var(--secondary-bg); */
+/*    box-shadow: var(--shadow-color); */
+/* } */
+
+/* Alternative: Keep the simple injected div for the health card if styling the container is too difficult */
+/* If you revert to using <div class="health-card">...</div> in main.py, keep the original .health-card CSS */
+
+/* --- Pollutant Details Styling (Revised for columns/markdown) --- */
+.pollutant-details {
+    background-color: var(--secondary-bg);
+    padding: 1rem 1.5rem; /* Adjust padding */
+    border-radius: 5px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--accent-color-2); /* Or var(--accent-color) */
+}
+.pollutant-details h4 {
+    margin-top: 0;
+    margin-bottom: 1rem; /* Space below title */
+    color: var(--accent-color-2); /* Or var(--accent-color) */
+}
+.pollutant-details .stMarkdown p { /* Target markdown paragraphs within the details */
+    margin-bottom: 0.5rem; /* Space between pollutant lines */
+    font-size: 0.95em;
+}
+.pollutant-details .stMarkdown code { /* Style the `value` part */
+    font-size: 1.1em; /* Make value slightly bigger */
+    padding: 0.1em 0.4em;
+    background-color: rgba(128, 128, 128, 0.2); /* Subtle background for value */
+    border-radius: 3px;
+}
+
+/* --- Conversational Agent Container Styling --- */
+.agent-container {
+    border: 2px solid var(--border-color); /* Use theme border color */
+    border-radius: 15px; /* Rounded corners, adjust as desired */
+    padding: 10px; /* Space between border and iframe */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--secondary-bg); /* Match theme background */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Use theme shadow */
+    overflow: hidden; /* Ensures iframe stays within rounded corners */
+}
+
+.agent-container iframe {
+    display: block; /* Removes potential extra space below iframe */
+    width: 100%; /* Make iframe fill the container width */
+    border: none; /* Remove default iframe border */
+    border-radius: 10px; /* Optional: slightly round iframe corners if container padding is large enough */
+}
