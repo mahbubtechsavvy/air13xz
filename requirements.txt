@@ -1,5 +1,0 @@
-streamlit~=1.44.1
-pandas~=2.2.3
-requests~=2.32.3
-pytz~=2024.1
-plotly~=5.x.x # Ensure plotly is listed if not covered by streamlit
